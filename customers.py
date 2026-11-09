@@ -80,3 +80,38 @@ for key in customer:
 # same time. Looping over the dictionary directly only gives the keys, so to
 # see a value I would have to look it up with customer[key].
 
+
+# ---------------------------------------------------------
+# Exercise 5: Lookup table
+# ---------------------------------------------------------
+print("\n=== Exercise 5: Lookup table ===")
+
+tier_discounts = {"bronze": 0, "silver": .05, "gold": .10, "platinum": .15}
+
+purchase = 200.00
+discount_rate = tier_discounts.get(customer["tier"], 0)
+final_price = purchase * (1 - discount_rate)
+
+print(f"Tier: {customer['tier']}")
+print(f"Discount rate: {discount_rate * 100:.0f}%")
+print(f"Final price: ${final_price:.2f}")
+
+
+# ---------------------------------------------------------
+# Exercise 6: List of dicts
+# ---------------------------------------------------------
+print("\n=== Exercise 6: List of dicts ===")
+
+customers = [
+    {"name": "Alice", "tier": "gold", "ytd_spend": 12400},
+    {"name": "Bob", "tier": "silver", "ytd_spend": 3200},
+    {"name": "Carol", "tier": "platinum", "ytd_spend": 28900},
+    {"name": "David", "tier": "bronze", "ytd_spend": 450},
+]
+
+purchase = 300.00
+for c in customers:
+    rate = tier_discounts.get(c["tier"], 0)
+    discount_amount = purchase * rate
+    print(f"{c['name']} ({c['tier']}): ${discount_amount:.2f} off a ${purchase:.2f} purchase")
+
