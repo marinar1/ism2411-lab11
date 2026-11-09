@@ -1,4 +1,4 @@
-# ISM2411 Lab 11 — Customer Dictionary & Lookup
+# ism2411 Lab 11 — Customer Dictionary & Lookup
 
 **Name:** Marina Rodriguez Teixeira
 
