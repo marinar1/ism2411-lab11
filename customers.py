@@ -115,3 +115,38 @@ for c in customers:
     discount_amount = purchase * rate
     print(f"{c['name']} ({c['tier']}): ${discount_amount:.2f} off a ${purchase:.2f} purchase")
 
+
+# ---------------------------------------------------------
+# Exercise 7: Nested catalog
+# ---------------------------------------------------------
+print("\n=== Exercise 7: Nested catalog ===")
+
+catalog = {
+    "Widget A": {"price": 9.99, "stock": 150},
+    "Gadget C": {"price": 49.99, "stock": 8},
+}
+
+for name, details in catalog.items():
+    if details["stock"] < 20:
+        print(f"LOW STOCK: {name} - only {details['stock']} left")
+
+
+# ---------------------------------------------------------
+# Exercise 8: Sales by region
+# ---------------------------------------------------------
+print("\n=== Exercise 8: Sales by region ===")
+
+transactions = [
+    {"region": "South", "amount": 300},
+    {"region": "North", "amount": 150},
+    {"region": "South", "amount": 200},
+]
+
+sales_by_region = {}
+for t in transactions:
+    region = t["region"]
+    sales_by_region[region] = sales_by_region.get(region, 0) + t["amount"]
+
+for region in sorted(sales_by_region):
+    print(f"{region}: {sales_by_region[region]}")
+
