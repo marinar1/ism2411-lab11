@@ -49,3 +49,34 @@ print("After updating tier:", customer)
 del customer["email"]
 print("After deleting email:", customer)
 
+
+# ---------------------------------------------------------
+# Exercise 3: Safe lookup
+# ---------------------------------------------------------
+print("\n=== Exercise 3: Safe lookup ===")
+
+email = customer.get("email", "no email on file")
+print(".get() result:", email)
+
+try:
+    print(customer["email"])
+except KeyError as error:
+    print("Bracket notation raised a KeyError:", error)
+
+
+# ---------------------------------------------------------
+# Exercise 4: Iterate
+# ---------------------------------------------------------
+print("\n=== Exercise 4: Iterate ===")
+
+for key, value in customer.items():
+    print(f"{key}: {value}")
+
+print("\nWithout .items():")
+for key in customer:
+    print(key)
+
+# Difference: looping with .items() gives both the key and the value at the
+# same time. Looping over the dictionary directly only gives the keys, so to
+# see a value I would have to look it up with customer[key].
+
